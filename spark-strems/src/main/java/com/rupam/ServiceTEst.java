@@ -1,6 +1,6 @@
 package com.rupam;
 
-import foo.bar.Person;
+import com.rupam.dto.Person;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
