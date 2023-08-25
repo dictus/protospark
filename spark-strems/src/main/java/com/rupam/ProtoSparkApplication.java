@@ -1,7 +1,9 @@
 package com.rupam;
 
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.sql.SparkSession;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.SpringApplicationExtensionsKt;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
@@ -12,9 +14,23 @@ public class ProtoSparkApplication {
 		SpringApplication.run(ProtoSparkApplication.class, args);
 	}
 
-	@Bean
+	@Bean("mySparkC")
 	public JavaSparkContext sparkContext() {
-		return new JavaSparkContext("local[*]", "ProtoSparkApplication");
+
+		SparkSession sparkSession = getSession();
+
+		return new JavaSparkContext(sparkSession.sparkContext());
+	}
+
+	@Bean("sparkSession")
+	public SparkSession getSession() {
+		SparkSession.Builder builder = SparkSession.builder();
+
+		builder.appName("ProtoSparkApplication");
+		builder.master("local[*]");
+		builder.config("spark.ui.enabled",false);
+		SparkSession sparkSession = builder.getOrCreate();
+		return sparkSession;
 	}
 
 }

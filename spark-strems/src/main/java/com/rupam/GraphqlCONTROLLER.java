@@ -4,12 +4,14 @@ import com.rupam.service.SparkJob;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
+import java.util.List;
 
 @RestController
 public class GraphqlCONTROLLER {
@@ -31,19 +33,16 @@ public class GraphqlCONTROLLER {
     }*/
 
 
-    @Autowired
-    private JavaSparkContext sparkContext;
 
     @Autowired
     private SparkJob sparkJob;
     @GetMapping("/count-words")
     public ResponseEntity<Long> countWords() {
-        JavaRDD<String> sentences = sparkContext.parallelize(Arrays.asList(
+        List<String> sentences = Arrays.asList(
                 "Hello world",
                 "Spring WebFlux and Spark integration",
                 "Reactive programming"
-        ));
-
-        return new ResponseEntity<>( sparkJob.countWordsInSentences(sparkContext, sentences), HttpStatus.ACCEPTED);
+        );
+        return new ResponseEntity<>( sparkJob.countWordsInSentences(sentences), HttpStatus.ACCEPTED);
     }
 }
