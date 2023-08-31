@@ -21,6 +21,8 @@ public class ServiceTEst implements ApplicationRunner {
         Person person = Person.newBuilder().setName("Arundhati").setAge(3).build();
 
         sparkJob.readJson(Arrays.asList("as"));
+        sparkJob.readCsv("abcpath");
+
         System.out.println(person);
     }
 }

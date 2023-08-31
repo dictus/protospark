@@ -16,6 +16,7 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <spark-sql_2.12.version>3.4.1</spark-sql_2.12.version>
+        <hadoop.version>3.3.4</hadoop.version>
         <jersey.version>2.36</jersey.version>
     </properties>
 
@@ -103,7 +104,7 @@
         <dependency>
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
-            <version>3.3.2</version>
+            <version>${hadoop.version}</version>
         </dependency>
         <dependency>
             <groupId>jakarta.servlet</groupId>
