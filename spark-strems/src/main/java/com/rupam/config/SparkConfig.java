@@ -1,29 +1,30 @@
-/*
 package com.rupam.config;
 
-import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaSparkContext;
-import org.springframework.beans.factory.annotation.Value;
+import org.apache.spark.sql.SparkSession;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SparkConfig {
 
-    @Value("${spark.app.name}")
-    private String appName;
-    @Value("${spark.master}")
-    private String masterUri;
+    @Bean("mySparkC")
+    public JavaSparkContext sparkContext() {
 
-    @Bean
-    public SparkConf conf() {
-        return new SparkConf().setAppName(appName).setMaster(masterUri);
+        SparkSession sparkSession = getSession();
+
+        return new JavaSparkContext(sparkSession.sparkContext());
     }
 
-    @Bean
-    public JavaSparkContext sc() {
-        return new JavaSparkContext(conf());
+    @Bean("sparkSession")
+    public SparkSession getSession() {
+        SparkSession.Builder builder = SparkSession.builder();
+
+        builder.appName("ProtoSparkApplication");
+        builder.master("local[*]");
+        builder.config("spark.ui.enabled",true);
+        SparkSession sparkSession = builder.getOrCreate();
+        return sparkSession;
     }
 
 }
-*/

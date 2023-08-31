@@ -15,6 +15,8 @@
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spark-sql_2.12.version>3.4.1</spark-sql_2.12.version>
+        <jersey.version>2.36</jersey.version>
     </properties>
 
     <dependencyManagement>
@@ -83,58 +85,16 @@
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-core_2.12</artifactId>
-            <version>3.4.0</version>
-           <!-- <exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-
-                <exclusion>
-                    <groupId>org.codehaus.janino</groupId>
-                    <artifactId>commons-compiler</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.codehaus.janino</groupId>
-                    <artifactId>janino</artifactId>
-                </exclusion>
-            </exclusions>-->
+            <version>${spark-sql_2.12.version}</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql_2.11 -->
         <dependency>
             <groupId>org.apache.spark</groupId>
             <artifactId>spark-sql_2.12</artifactId>
-            <version>3.4.0</version>
-            <!--<exclusions>
-                <exclusion>
-                    <groupId>org.slf4j</groupId>
-                    <artifactId>slf4j-log4j12</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                </exclusion>
-
-                <exclusion>
-                    <groupId>org.codehaus.janino</groupId>
-                    <artifactId>commons-compiler</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>org.codehaus.janino</groupId>
-                    <artifactId>janino</artifactId>
-                </exclusion>
-            </exclusions>-->
+            <version>${spark-sql_2.12.version}</version>
         </dependency>
 
-        <!--<dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -144,6 +104,11 @@
             <groupId>org.apache.hadoop</groupId>
             <artifactId>hadoop-client</artifactId>
             <version>3.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>jakarta.servlet</groupId>
+            <artifactId>jakarta.servlet-api</artifactId>
+            <scope>runtime</scope>
         </dependency>
         <!--<dependency>
             <groupId>jakarta.servlet</groupId>

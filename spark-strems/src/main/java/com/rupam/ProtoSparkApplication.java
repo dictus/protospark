@@ -14,23 +14,5 @@ public class ProtoSparkApplication {
 		SpringApplication.run(ProtoSparkApplication.class, args);
 	}
 
-	@Bean("mySparkC")
-	public JavaSparkContext sparkContext() {
-
-		SparkSession sparkSession = getSession();
-
-		return new JavaSparkContext(sparkSession.sparkContext());
-	}
-
-	@Bean("sparkSession")
-	public SparkSession getSession() {
-		SparkSession.Builder builder = SparkSession.builder();
-
-		builder.appName("ProtoSparkApplication");
-		builder.master("local[*]");
-		builder.config("spark.ui.enabled",false);
-		SparkSession sparkSession = builder.getOrCreate();
-		return sparkSession;
-	}
 
 }
