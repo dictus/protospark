@@ -4,6 +4,8 @@ option java_multiple_files = true;
 package com.rupam.dto;
 
 message Address{
-  string streetName = 1;
+  string floorNumber =1;
+  string streetName = 2;
+  string streetName2 = 3;
 
 }

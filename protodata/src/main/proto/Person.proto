@@ -1,4 +1,5 @@
 syntax = "proto3";
+import "Address.proto";
 option java_multiple_files = true;
 
 package com.rupam.dto;
@@ -6,7 +7,8 @@ package com.rupam.dto;
 message Person {
   string name = 1;
   int32 age = 2;
-
+  Address permanentAddress= 3;
+  Address currentAddress= 4;
 }
 
 
