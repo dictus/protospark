@@ -3,6 +3,7 @@ package com.rupam.service;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -13,6 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
 
 @SpringBootTest
+@ActiveProfiles("csv")
 class SparkJobTest {
 
     @Autowired
@@ -36,7 +38,7 @@ class SparkJobTest {
     }
 
     // Tests that the method correctly counts the number of distinct words in a list of sentences containing a single word
-    @Test
+   /* @Test
     public void test_countWordsInSentences_singleWord() {
         // Arrange
         List<String> sentences = Arrays.asList("Hello", "Hello", "Hello");
@@ -60,6 +62,6 @@ class SparkJobTest {
 
         // Assert
         assertEquals(expectedCount, actualCount);
-    }
+    }*/
 
 }

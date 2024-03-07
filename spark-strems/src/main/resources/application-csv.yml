@@ -1,0 +1,12 @@
+csv:
+  path: "src/main/resources/ReadCSV.csv"
+  header: true
+  inferSchema: false
+  mapping:
+    - columnName: "name"
+      fieldType: "String"
+      colmSPel: "get(0)"
+    - columnName: "age"
+      fieldType: "int"
+      colmSPel: "get(1)"
+  protobufClass: "com.rupam.dto.Person"
