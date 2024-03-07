@@ -1,6 +1,7 @@
 package com.rupam.config;
 
 import com.google.protobuf.GeneratedMessageV3;
+import com.rupam.dto.Person;
 import com.rupam.service.ProtoConversionService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,5 +18,10 @@ public class ProtoConversionConfig {
                 return protoConversionService.convertProtoToBean(source);
             }
         };
+    }
+
+    @Bean
+    public Class<Person> personClass() {
+        return Person.class;
     }
 }
