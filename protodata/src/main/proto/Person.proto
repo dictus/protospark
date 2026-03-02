@@ -6,7 +6,25 @@ package com.rupam.dto;
 message Person {
   string name = 1;
   int32 age = 2;
-
 }
+
+message PersonRequest {
+  string name = 1;
+  int32 age = 2;
+}
+
+message PersonResponse {
+  string name = 1;
+  int32 age = 2;
+  string message = 3;
+}
+
+service PersonService {
+  rpc CreatePerson(PersonRequest) returns (PersonResponse);
+  rpc GetPerson(PersonRequest) returns (Person);
+  rpc UpdatePerson(Person) returns (PersonResponse);
+  rpc ListPersons(PersonRequest) returns (stream Person);
+}
+
 
 

@@ -18,8 +18,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <!-- Adjust the gRPC Spring Boot starter version if needed -->
-        <grpc.springboot.version>2.13.1</grpc.springboot.version>
+        <grpc.springboot.version>2.15.0.RELEASE</grpc.springboot.version>
     </properties>
 
     <dependencies>
@@ -33,22 +32,32 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <!-- gRPC Spring Boot starter - temporarily disabled to allow upgrade/build
+        <!-- gRPC Spring Boot starter - net.devh (stable, production-ready) -->
         <dependency>
             <groupId>net.devh</groupId>
             <artifactId>grpc-spring-boot-starter</artifactId>
             <version>${grpc.springboot.version}</version>
         </dependency>
-        -->
 
-        <!-- If you plan to use protobuf-generated classes from protodata module, add a dependency on that module (uncomment): -->
-        <!--
+        <!-- Jakarta Annotations for @Generated (required for Java 26) -->
+        <dependency>
+            <groupId>jakarta.annotation</groupId>
+            <artifactId>jakarta.annotation-api</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <!-- Javax Annotations compatibility for protoc-generated code -->
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
+        <!-- Protobuf-generated classes from protodata module -->
         <dependency>
             <groupId>com.rupam</groupId>
             <artifactId>protodata</artifactId>
             <version>${project.parent.version}</version>
         </dependency>
-        -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

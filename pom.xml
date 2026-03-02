@@ -21,6 +21,7 @@
     </modules>
     <properties>
         <java.version>26</java.version>
+        <grpc.springboot.version>2.15.0.RELEASE</grpc.springboot.version>
     </properties>
     <dependencies>
         <dependency>
